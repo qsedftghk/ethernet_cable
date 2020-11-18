@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Ethernet Cable</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  <!-- переопределяем режим совместимости в интрасети для IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="threesixty.js"></script> <!-- картинки -->
+
+    <style type="text/css">
+	body{
+	  width:900px;
+	  margin:170px auto auto auto!important;
+      background: #12100ee3;
+  	}
+
+    #container .threesixty {
+      position: relative;
+      overflow: hidden;
+      margin: 20px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+    #container .threesixty .spinner {
+      width: 60px;
+      display: block;
+      margin: 0 auto;
+      height: 30px;
+      background: #333;
+      background: rgba(0, 0, 0, 0.7);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+    #container .threesixty .spinner span {
+      font-family: Arial, "MS Trebuchet", sans-serif;
+      font-size: 12px;
+      font-weight: bolder;
+      color: #FFF;
+      text-align: center;
+      line-height: 30px;
+      display: block;
+    }
+    #container .threesixty .threesixty_images {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    #container .threesixty .threesixty_images img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+    #container .threesixty .threesixty_images img.current-image {
+      visibility: visible;
+      width: 100%;
+    }
+    #container .threesixty .threesixty_images img.previous-image {
+      visibility: hidden;
+      width: 0;
+    }
+    </style>
+
+  </head>
+
+  <body>
+</div>
+	<div id='container'>
+		<div class="threesixty car">
+			<div class="spinner">
+				<span>0%</span>
+			</div>
+			<ol class="threesixty_images"></ol>
+		</div>
+	<div style="color: #666666; margin-left: 20px; font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 80%;"> Открытка 360° (Поворачивайте картинку с помощью мыши  &larr; &nbsp; &rarr;)</div>
+	</div>
+
+	<script>
+		window.onload = init;
+
+		var car;
+		function init(){
+  	    car = $('.car').ThreeSixty({
+        totalFrames: 70,	// Общее число кадров
+        endFrame: 70,	// конечный кадр
+        currentFrame: 1,	// с какого кадра стартовать
+        imgList: '.threesixty_images',	// селектор изображений
+        progress: '.spinner',	// селектор элемента процесса загрузки
+        imagePath:'',	// путь к папке с изображениями imagePath:'i/'
+        filePrefix: 'q00',	// префикс файлов
+        ext: '.jpg',	// формат изображения
+        width: 1100,
+        height: 825,
+        responsive: true,
+		zeroPadding: true, // разрешить начинать имя файля с нуля
+        autoplay: true,
+		//autoplayDirection: 1,
+		zeroBased: true // начинать имя файля с нуля
+      });
+		}
+ //  $('.container-fluid').bind('click', function(e) { product.play();  });
+
+
+	</script>
+  </body>
+</html>
